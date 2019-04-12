@@ -21,6 +21,10 @@
         {
             "name": "Filip Likavcan",
             "email": "filip@bratia.sk"
+        },
+        {
+            "name": "Pavol Tuka",
+            "email": "pavol@bratia.sk"
         }
     ],
     "support": {
@@ -43,9 +47,6 @@
     },
     "extra": {
         "installer-name": "linkable",
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        },
         "expose": [
             "client"
         ]
