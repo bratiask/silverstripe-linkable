@@ -1,12 +1,12 @@
 ---
 Name: linkable
 Only:
-  moduleexists: 'silverstripe/cms'
+    moduleexists: silverstripe/cms
 ---
-Sheadawson\Linkable\Models\Link:
-  extensions:
-    - Sheadawson\Linkable\Extensions\LinkableSiteTreeExtension
+Bratiask\Linkable\Models\Link:
+    extensions:
+        - Bratiask\Linkable\Extensions\LinkableSiteTreeExtension
 
 Page:
-  extensions:
-    - Sheadawson\Linkable\Extensions\LinkableDataExtension
+    extensions:
+        - Bratiask\Linkable\Extensions\LinkableDataExtension

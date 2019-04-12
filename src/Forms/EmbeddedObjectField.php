@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Forms;
+namespace Bratiask\Linkable\Forms;
 
 use Embed\Embed;
-use Sheadawson\Linkable\Models\EmbeddedObject;
+use Bratiask\Linkable\Models\EmbeddedObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\TextField;
@@ -21,7 +22,7 @@ use SilverStripe\Forms\FormField;
  * Class EmbeddedObjectField
  * @license BSD License http://www.silverstripe.org/bsd-license
  * @author <marcus@silverstripe.com.au>
- * @package Sheadawson\Linkable\Forms
+ * @package Bratiask\Linkable\Forms
  */
 class EmbeddedObjectField extends FormField
 {
@@ -87,8 +88,8 @@ class EmbeddedObjectField extends FormField
      */
     public function FieldHolder($properties = [])
     {
-        Requirements::css('sheadawson/silverstripe-linkable: client/dist/styles/bundle.css');
-        Requirements::javascript('sheadawson/silverstripe-linkable: client/dist/js/bundle.js');
+        Requirements::css('bratiask/silverstripe-linkable: client/dist/styles/bundle.css');
+        Requirements::javascript('bratiask/silverstripe-linkable: client/dist/js/bundle.js');
 
         if ($this->object && $this->object->ID) {
             $properties['SourceURL'] = TextField::create($this->getName() . '[sourceurl]', '')

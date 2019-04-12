@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Forms;
+namespace Bratiask\Linkable\Forms;
 
-use Sheadawson\Linkable\Models\Link;
+use Bratiask\Linkable\Models\Link;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\View\HTML;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HeaderField;
@@ -18,7 +20,8 @@ use SilverStripe\Forms\TextField;
  * Class LinkField
  * @license BSD License http://www.silverstripe.org/bsd-license
  * @author <shea@silverstripe.com.au>
- * @package Sheadawson\Linkable\Forms
+ * @author <filip@bratia.sk>
+ * @package Bratiask\Linkable\Forms
  */
 class LinkField extends TextField
 {
@@ -54,7 +57,7 @@ class LinkField extends TextField
      */
     public function Field($properties = [])
     {
-        Requirements::javascript('sheadawson/silverstripe-linkable: client/dist/js/bundle.js');
+        Requirements::javascript('bratiask/silverstripe-linkable: client/dist/js/bundle.js');
 
         return parent::Field();
     }
@@ -140,9 +143,55 @@ class LinkField extends TextField
      */
     public function doRemoveLink()
     {
-        $this->setValue('');
+        $link = $this->getLinkObject();
+
+        if ($link instanceof Link) {
+            $link->delete();
+
+            if (!$link->hasMethod('translations') || 0 === count($link->translations())) {
+                $this->setValue('');
+            }
+        }
 
         return $this->FieldHolder();
+    }
+
+    public function showSuppresed()
+    {
+        $link = $this->getLinkObject();
+
+        if ($link instanceof Link && $link->hasMethod('isTranslated')) {
+            return !$link->isTranslated();
+        }
+
+        return false;
+    }
+
+    public function showRemoveButton()
+    {
+        $link = $this->getLinkObject();
+
+        if ($link instanceof Link && $link->hasMethod('isTranslated')) {
+            return $link->isTranslated();
+        }
+
+        return true;
+    }
+
+    public function summary()
+    {
+        $link = $this->getLinkObject();
+
+        if ($link instanceof Link && $link->hasMethod('translationSummary')) {
+            $translationSummary = $link->translationSummary();
+            return empty($translationSummary) ? '' : HTML::createTag(
+                'div',
+                [],
+                'Translations: ' . $translationSummary
+            );
+        }
+
+        return '';
     }
 
     /**

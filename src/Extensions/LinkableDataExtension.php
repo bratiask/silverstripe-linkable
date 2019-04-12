@@ -1,15 +1,16 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Extensions;
+namespace Bratiask\Linkable\Extensions;
 
-use Sheadawson\Linkable\Models\Link;
+use Bratiask\Linkable\Models\Link;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\DataExtension;
 
 /**
  * Class LinkableDataExtension
  * @author Ryan
- * @package Sheadawson\Linkable
+ * @package Bratiask\Linkable
  */
 class LinkableDataExtension extends DataExtension
 {

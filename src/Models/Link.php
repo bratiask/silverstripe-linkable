@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Models;
+namespace Bratiask\Linkable\Models;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Forms\DropdownField;
@@ -25,14 +26,14 @@ use SilverStripe\ORM\DataObject;
  * @property string Phone
  * @property bool OpenInNewWindow
  * @property string Template
- * @package Sheadawson\Linkable\Models
+ * @package Bratiask\Linkable\Models
  */
 class Link extends DataObject
 {
     /**
      * @var string custom CSS classes for template
      */
-    protected $cssClass;
+    protected $cssClass = '';
 
     /**
      * @var array

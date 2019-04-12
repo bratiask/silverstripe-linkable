@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Models;
+namespace Bratiask\Linkable\Models;
 
 use Embed\Adapters\Adapter;
 use Embed\Embed;
@@ -19,7 +20,7 @@ use SilverStripe\ORM\DataObject;
  * @property string ThumbURL
  * @property string ExtraClass
  * @property string EmbedHTML
- * @package Sheadawson\Linkable\Models
+ * @package Bratiask\Linkable\Models
  */
 class EmbeddedObject extends DataObject
 {

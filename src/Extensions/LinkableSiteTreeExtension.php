@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Sheadawson\Linkable\Extensions;
+namespace Bratiask\Linkable\Extensions;
 
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
@@ -15,7 +16,7 @@ use SilverStripe\ORM\DataExtension;
  * Class LinkableSiteTreeExtension
  * @license BSD License http://www.silverstripe.org/bsd-license
  * @author  <mohamed.alsharaf@chrometoaster.com>
- * @package Sheadawson\Linkable\Extensions
+ * @package Bratiask\Linkable\Extensions
  */
 class LinkableSiteTreeExtension extends DataExtension
 {
